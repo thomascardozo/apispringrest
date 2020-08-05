@@ -19,7 +19,7 @@ public class Aluguel {
 	private Book livro;
 	private Usuario userAluguel;
 	private Date dataInicioAluguel;
-	private boolean rented;
+	private boolean rented = false;
 	
 	public boolean isRented() {
 		return rented;

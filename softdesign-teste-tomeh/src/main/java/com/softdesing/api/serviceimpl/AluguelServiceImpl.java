@@ -1,5 +1,6 @@
 package com.softdesing.api.serviceimpl;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,12 +26,13 @@ public class AluguelServiceImpl implements AluguelService {
 	@Override
 	public Aluguel listarPorIdAluguel(String id) {
 		Optional<Aluguel> aluguel = aluguelRepository.findById(id);
-
 		return aluguel.get();
 	}
 
 	@Override
 	public Aluguel cadastrarAluguel(Aluguel aluguel) {
+		aluguel.setRented(true);
+		aluguel.setDataInicioAluguel(aluguel.getDataInicioAluguel());
 		return this.aluguelRepository.save(aluguel);
 	}
 
@@ -42,6 +44,13 @@ public class AluguelServiceImpl implements AluguelService {
 	@Override
 	public void removerAluguel(String id) {
 		this.aluguelRepository.deleteById(id); 
+	}
+
+	@Override
+	public Aluguel devolverAluguel(Aluguel aluguel) {
+		aluguel.setRented(false);
+		aluguel.setDataInicioAluguel(new Date());
+		return this.aluguelRepository.save(aluguel);
 	}
 
 }

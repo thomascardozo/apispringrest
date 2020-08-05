@@ -12,6 +12,8 @@ public interface AluguelService {
 	
 	Aluguel cadastrarAluguel(Aluguel aluguel);
 	
+	Aluguel devolverAluguel(Aluguel aluguel);
+	
 	Aluguel atualizarAluguel(Aluguel aluguel);
 	
 	void removerAluguel(String id);

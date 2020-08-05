@@ -1,4 +1,4 @@
-package com.softdesing.api.service;
+package com.softdesing.api.serviceimpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.softdesing.api.model.Usuario;
 import com.softdesing.api.repository.RoleRepository;
 import com.softdesing.api.repository.UsuarioRepository;
+import com.softdesing.api.service.UserDetailsImpl;
 
 @Service
 @EnableCaching(proxyTargetClass=true)
