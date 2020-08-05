@@ -1,27 +1,35 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://thymeleaf.org"
-	    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
-	<title>AlugueldeLivrosApp</title>
+<title>AlugueldeLivrosApp</title>
 </head>
 
 <center>
-<body bgcolor="MediumAquamarine">
-	<h1>Lista de Alugueis</h1>
-	<h3><a href="/cadastrarAluguel">Cadastrar Aluguel</a></h3>
+	<body bgcolor="MediumAquamarine">
+		<h1>Lista de Alugueis</h1>
+		<h3>
+			<a href="/cadastrarAluguel">Cadastrar Aluguel</a>
+		</h3>
 </center>
-	<div th:each="aluguel : ${alugueis}">
-		<div class="row">
-			<p><span th:text="${aluguel.livro}"></span></p>
-			<p><span th:text="${aluguel.situacao}"></span></p>
-			<p><span th:text="${aluguel.solicitante}"></span></p>
-			<p><span th:text="${aluguel.devolucao}"></span></p>
+<div th:each="aluguel : ${alugueis}">
+	<div class="row">
+		<p>
+			<span th:text="${aluguel.livro}"></span>
+		</p>
+		<p>
+			<span th:text="${aluguel.situacao}"></span>
+		</p>
+		<p>
+			<span th:text="${aluguel.solicitante}"></span>
+		</p>
+		<p>
+			<span th:text="${aluguel.devolucao}"></span>
+		</p>
+	</div>
+</div>
 
-		</div>
-
-	</div>	
-	
 </body>
 
 </html>

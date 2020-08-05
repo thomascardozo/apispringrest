@@ -1,15 +1,18 @@
 package com.softdesing.api.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.softdesing.api.model.Usuario;
+import com.softdesing.api.repository.RoleRepository;
 import com.softdesing.api.repository.UsuarioRepository;
 
 @Service
@@ -18,6 +21,10 @@ import com.softdesing.api.repository.UsuarioRepository;
 public class UserDetailsServiceImpl implements UserDetailsService {
 	@Autowired
 	UsuarioRepository userRepository;
+	
+	@Autowired
+	private RoleRepository roleRepository;	
+	
 
 	@Override
 	@Transactional
@@ -27,5 +34,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 		return UserDetailsImpl.build(user);
 	}
+	
+	/*public Usuario findUserByEmail(String email) {
+	    return userRepository.findByUsername(email);
+	}*/
 
 }
