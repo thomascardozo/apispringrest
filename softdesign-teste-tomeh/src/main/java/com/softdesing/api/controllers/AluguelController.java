@@ -38,6 +38,7 @@ public class AluguelController {
 		return ResponseEntity.ok(this.aService.listarPorIdAluguel(id));
 	}
 
+	@GetMapping(path = "/cadastro")
 	@PostMapping
 	public ResponseEntity<Aluguel> cadastrarAluguel(@RequestBody Aluguel aluguel) {
 		if (aluguel.isRented() != true) {
@@ -52,6 +53,7 @@ public class AluguelController {
 		}
 	}
 
+	@GetMapping(path = "/devolucao")
 	@PostMapping
 	public ResponseEntity<Aluguel> devolucaoAluguel(@RequestBody Aluguel aluguel) {
 		if (aluguel.isRented() == true) {
